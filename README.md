@@ -19,6 +19,7 @@ This authentication service offers a complete solution for user authentication a
 ## ✨ Features
 
 ### 🔑 **Authentication & Security**
+
 - **User Registration & Login** - Secure account creation and authentication
 - **JWT Token Management** - Stateless authentication with refresh tokens
 - **Password Security** - bcrypt hashing with salt rounds
@@ -26,12 +27,14 @@ This authentication service offers a complete solution for user authentication a
 - **Route Protection** - Middleware-based authorization
 
 ### 🛡️ **Data Validation & Safety**
+
 - **Input Validation** - Zod schema validation for all endpoints
 - **SQL Injection Protection** - Prisma ORM with parameterized queries
 - **CORS Configuration** - Cross-origin request handling
 - **Rate Limiting** - Prevent brute force attacks (recommended)
 
 ### 🗄️ **Database & ORM**
+
 - **Prisma ORM** - Type-safe database operations
 - **MySQL Support** - Reliable relational database
 - **Migration System** - Version-controlled database schema
@@ -56,16 +59,16 @@ src/
 
 ## 🔧 Tech Stack
 
-| Technology | Purpose | Version |
-|------------|---------|---------|
-| ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat&logo=node.js&logoColor=white) | **Runtime Environment** | v16+ |
-| ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | **Programming Language** | v5.0+ |
-| ![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat&logo=express&logoColor=white) | **Web Framework** | v4.18+ |
-| ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat&logo=mysql&logoColor=white) | **Database** | v8.0+ |
-| ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat&logo=prisma&logoColor=white) | **ORM** | v5.0+ |
-| ![JWT](https://img.shields.io/badge/-JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white) | **Authentication** | Latest |
-| ![bcrypt](https://img.shields.io/badge/-bcrypt-red?style=flat) | **Password Hashing** | Latest |
-| ![Zod](https://img.shields.io/badge/-Zod-3E67B1?style=flat) | **Schema Validation** | Latest |
+| Technology                                                                                                | Purpose                  | Version |
+| --------------------------------------------------------------------------------------------------------- | ------------------------ | ------- |
+| ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat&logo=node.js&logoColor=white)          | **Runtime Environment**  | v16+    |
+| ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | **Programming Language** | v5.0+   |
+| ![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat&logo=express&logoColor=white)    | **Web Framework**        | v4.18+  |
+| ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=flat&logo=mysql&logoColor=white)                | **Database**             | v8.0+   |
+| ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?style=flat&logo=prisma&logoColor=white)             | **ORM**                  | v5.0+   |
+| ![JWT](https://img.shields.io/badge/-JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)            | **Authentication**       | Latest  |
+| ![bcrypt](https://img.shields.io/badge/-bcrypt-red?style=flat)                                            | **Password Hashing**     | Latest  |
+| ![Zod](https://img.shields.io/badge/-Zod-3E67B1?style=flat)                                               | **Schema Validation**    | Latest  |
 
 ---
 
@@ -83,16 +86,18 @@ Ensure you have the following installed on your machine:
 ### 📦 Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/auth-backend.git
    cd auth-backend
    ```
 
 2. **Install dependencies**
+
    ```bash
    # Using npm
    npm install
-   
+
    # Using yarn
    yarn install
    ```
@@ -113,39 +118,25 @@ DATABASE_URL="mysql://username:password@localhost:3306/authdb"
 
 # JWT Configuration
 JWT_SECRET="your-super-secret-jwt-key-min-32-characters"
-JWT_REFRESH_SECRET="your-refresh-token-secret"
-JWT_EXPIRES_IN="15m"
-JWT_REFRESH_EXPIRES_IN="7d"
-
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# Email Configuration (for password reset)
-SMTP_HOST="smtp.gmail.com"
-SMTP_PORT=587
-SMTP_USER="your-email@gmail.com"
-SMTP_PASS="your-app-password"
-
-# Frontend URL (for CORS)
-FRONTEND_URL="http://localhost:3000"
 ```
 
 ### 🗄️ Database Setup
 
 1. **Create MySQL database**
+
    ```sql
    CREATE DATABASE authdb;
    ```
 
 2. **Run Prisma migrations**
+
    ```bash
    # Generate Prisma client
    npx prisma generate
-   
+
    # Run database migrations
    npx prisma migrate dev --name init
-   
+
    # Seed database (optional)
    npx prisma db seed
    ```
@@ -160,12 +151,15 @@ FRONTEND_URL="http://localhost:3000"
 ## 🏃‍♂️ Running the Application
 
 ### Development Mode
+
 ```bash
 npm run dev
 ```
+
 The server will start on `http://localhost:5000` with hot reloading enabled.
 
 ### Production Mode
+
 ```bash
 # Build the application
 npm run build
@@ -175,6 +169,7 @@ npm start
 ```
 
 ### Using Docker (Optional)
+
 ```bash
 # Build and run with Docker Compose
 docker-compose up --build
@@ -189,22 +184,22 @@ docker-compose up -d
 
 ### 🔐 Authentication Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| `POST` | `/api/auth/register` | Register new user | ❌ |
-| `POST` | `/api/auth/login` | User login | ❌ |
-| `POST` | `/api/auth/logout` | User logout | ✅ |
-| `POST` | `/api/auth/refresh` | Refresh JWT token | ❌ |
-| `POST` | `/api/auth/forgot-password` | Request password reset | ❌ |
-| `POST` | `/api/auth/reset-password` | Reset password | ❌ |
+| Method | Endpoint                    | Description            | Auth Required |
+| ------ | --------------------------- | ---------------------- | ------------- |
+| `POST` | `/api/auth/register`        | Register new user      | ❌            |
+| `POST` | `/api/auth/login`           | User login             | ❌            |
+| `POST` | `/api/auth/logout`          | User logout            | ✅            |
+| `POST` | `/api/auth/refresh`         | Refresh JWT token      | ❌            |
+| `POST` | `/api/auth/forgot-password` | Request password reset | ❌            |
+| `POST` | `/api/auth/reset-password`  | Reset password         | ❌            |
 
 ### 👤 User Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| `GET` | `/api/users/profile` | Get user profile | ✅ |
-| `PUT` | `/api/users/profile` | Update profile | ✅ |
-| `DELETE` | `/api/users/account` | Delete account | ✅ |
+| Method   | Endpoint             | Description      | Auth Required |
+| -------- | -------------------- | ---------------- | ------------- |
+| `GET`    | `/api/users/profile` | Get user profile | ✅            |
+| `PUT`    | `/api/users/profile` | Update profile   | ✅            |
+| `DELETE` | `/api/users/account` | Delete account   | ✅            |
 
 ### 📝 Example Requests
 
@@ -222,7 +217,6 @@ curl -X POST http://localhost:5000/api/auth/register \
   }'
 ```
 
-
 </details>
 
 <details>
@@ -236,6 +230,7 @@ curl -X POST http://localhost:5000/api/auth/login \
     "password": "SecurePass123!"
   }'
 ```
+
 </details>
 
 ---
@@ -261,6 +256,7 @@ npm test -- auth.test.ts
 ## 🔒 Security Features
 
 ### 🛡️ **Built-in Security Measures**
+
 - **Password Hashing** - bcrypt with configurable salt rounds
 - **JWT Security** - Short-lived access tokens + refresh tokens
 - **Input Validation** - Comprehensive Zod schemas
@@ -269,6 +265,7 @@ npm test -- auth.test.ts
 - **Environment Variables** - Sensitive data protection
 
 ### 🚨 **Recommended Additional Security**
+
 - **Rate Limiting** - Use `express-rate-limit`
 - **Helmet.js** - Security headers
 - **HTTPS** - SSL/TLS encryption in production
@@ -314,6 +311,7 @@ auth-backend/
 ## 🚀 Deployment
 
 ### **Railway**
+
 ```bash
 # Install Railway CLI
 npm install -g @railway/cli
@@ -325,6 +323,7 @@ railway up
 ```
 
 ### **Heroku**
+
 ```bash
 # Install Heroku CLI and login
 heroku create your-app-name
@@ -333,6 +332,7 @@ git push heroku main
 ```
 
 ### **Docker**
+
 ```dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -357,6 +357,7 @@ We welcome contributions! Please follow these steps:
 5. **Open a Pull Request**
 
 ### 📋 **Development Guidelines**
+
 - Follow TypeScript best practices
 - Write comprehensive tests
 - Update documentation
