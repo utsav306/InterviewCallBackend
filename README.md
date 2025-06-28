@@ -16,32 +16,6 @@ This authentication service offers a complete solution for user authentication a
 
 ---
 
-## ✨ Features
-
-### 🔑 **Authentication & Security**
-
-- **User Registration & Login** - Secure account creation and authentication
-- **JWT Token Management** - Stateless authentication with refresh tokens
-- **Password Security** - bcrypt hashing with salt rounds
-- **Password Recovery** - Secure forgot/reset password workflow
-- **Route Protection** - Middleware-based authorization
-
-### 🛡️ **Data Validation & Safety**
-
-- **Input Validation** - Zod schema validation for all endpoints
-- **SQL Injection Protection** - Prisma ORM with parameterized queries
-- **CORS Configuration** - Cross-origin request handling
-- **Rate Limiting** - Prevent brute force attacks (recommended)
-
-### 🗄️ **Database & ORM**
-
-- **Prisma ORM** - Type-safe database operations
-- **MySQL Support** - Reliable relational database
-- **Migration System** - Version-controlled database schema
-- **Connection Pooling** - Optimized database performance
-
----
-
 ## 🏗️ Architecture
 
 ```
@@ -158,28 +132,6 @@ npm run dev
 
 The server will start on `http://localhost:5000` with hot reloading enabled.
 
-### Production Mode
-
-```bash
-# Build the application
-npm run build
-
-# Start production server
-npm start
-```
-
-### Using Docker (Optional)
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Run in background
-docker-compose up -d
-```
-
----
-
 ## 📚 API Documentation
 
 ### 🔐 Authentication Endpoints
@@ -232,24 +184,6 @@ curl -X POST http://localhost:5000/api/auth/login \
 ```
 
 </details>
-
----
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run specific test file
-npm test -- auth.test.ts
-```
 
 ---
 
@@ -306,48 +240,6 @@ auth-backend/
 └── README.md
 ```
 
----
-
-## 🚀 Deployment
-
-### **Railway**
-
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-
-# Login and deploy
-railway login
-railway link
-railway up
-```
-
-### **Heroku**
-
-```bash
-# Install Heroku CLI and login
-heroku create your-app-name
-heroku config:set NODE_ENV=production
-git push heroku main
-```
-
-### **Docker**
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-COPY . .
-RUN npm run build
-EXPOSE 5000
-CMD ["npm", "start"]
-```
-
----
-
-## 🤝 Contributing
-
 We welcome contributions! Please follow these steps:
 
 1. **Fork the repository**
@@ -366,34 +258,6 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🆘 Support & Help
-
-- **Documentation**: Check our [Wiki](../../wiki)
-- **Issues**: Report bugs on [GitHub Issues](../../issues)
-- **Discussions**: Join [GitHub Discussions](../../discussions)
-- **Email**: contact@yourproject.com
-
----
-
-## 🙏 Acknowledgments
-
-- [Prisma Team](https://www.prisma.io/) for the amazing ORM
-- [Express.js](https://expressjs.com/) for the robust web framework
-- [TypeScript](https://www.typescriptlang.org/) for type safety
-- All our [contributors](../../contributors)
-
----
-
 <div align="center">
-
-### ⭐ **If this project helped you, please give it a star!** ⭐
-
-**Made with ❤️ by [Your Name](https://github.com/yourusername)**
 
 </div>
